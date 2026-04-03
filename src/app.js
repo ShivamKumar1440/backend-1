@@ -14,6 +14,11 @@ app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+// add this before your userRouter
+app.get("/test", (req, res) => {
+    res.json({ message: "Server is working!" });
+});
+
 // routes import
 
 import userRouter from './routes/user.routes.js'
